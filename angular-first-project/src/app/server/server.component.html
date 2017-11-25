@@ -1,0 +1,35 @@
+<p [ngStyle]="{backgroundColor: getColor()}" [ngClass]="{offline: serverStatus === 'offline'}">{{ 'Server' }} {{ serverId }} is {{ getServerStatus() }}
+</p>
+
+<!-- <p 
+  [ngStyle]="{backgroundColor: getColor()}"
+  [ngClass]="{offline: serverStatus === 'offline'}">{{ 'Server' }} {{ serverId }} is {{ getServerStatus() }}
+</p> -->
+
+<!-- 
+STRING INTERPOLATION 
+
+{{ 'Server' }} was permitted because,
+any expression that can be resolved to a string at the end can become a part of the string interpolation syntax, 
+be it a method that returns a string,
+{{}} cannot contain multi-line/block code but can have a ternary expression
+{{ serverId }} and {{ serverStatus }} point to a property
+-->
+
+<!-- 
+ngStyle
+
+Enables dynamically assigning a css style.
+Used property binding to configure it.
+ngStyle is a directive while [ngStyle] is used to bind to some property of the directive ngStyle, which also happens to be ngStyle.
+The ngStyle property here takes in a JavaScript object just like disabled property expected a boolean i.e., a true or false value.
+-->
+
+<!-- 
+ngClass
+
+Add or remove css classes dynamically.
+[ngClass] property also expects a JavaAcript object, i.e., key-value pair where:
+key: is the css class name
+value: conditions determining whether or not the class must be attached.
+-->

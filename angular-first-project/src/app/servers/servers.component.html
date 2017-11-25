@@ -1,0 +1,50 @@
+<!-- <md-form-field>
+  <input mdInput type="text" floatPlaceholder placeholder="Server Name" (input)="onUpdateServerName($event)">
+</md-form-field> -->
+<md-form-field>
+  <input mdInput type="text" placeholder="Server Name" [(ngModel)]="serverName">
+</md-form-field>
+<!-- <button md-button md-raised-button [disabled]="!allowNewServer" (click)="onCreateServer()">Add Server</button> -->
+<button md-button md-raised-button [disabled]="serverName === ''" (click)="onCreateServer(); openSnackBar('Created new server', 'OK')">Add Server</button>
+<!-- <p>{{ serverName }}</p> -->
+<p *ngIf="serverCreated; else noServer">Server {{ serverName }} was created !</p>
+<ng-template #noServer> <!-- Used to mark places in the DOM, We've marked the <p> to show it conditionally("else" case to above "if") -->
+  <p>No server created.</p>
+</ng-template>  
+<!-- <p>{{ serverCreationStatus }}</p> -->
+<md-toolbar>
+  <span>STATUS</span>
+</md-toolbar>
+<app-server *ngFor="let server of servers"></app-server>
+<!-- <md-spinner></md-spinner> -->
+
+<!-- <p>{{ allowNewServer }}</p> -->
+<!-- <p [innerText]="allowNewServer"></p> -->
+<!-- <p [innerHTML]="allowNewServer"></p> -->
+
+<md-sidenav>
+  
+</md-sidenav>
+
+<!-- 
+PROPERTY BINDING
+
+[ ] Tells Angular that we want to dynamically bind some property.
+(The disabled property of the button is set by the disabled attribute) ???? property vs attribute ????
+disabled is not an attribute here anymore, 
+by using the square brackets we are directly binding to this native disabled property, this html element has.
+" " contains an expression which for this property resolves to a boolean. It can also contain a function !
+We are binding to this native element property(disabled) our typescript property(allowNewServer)
+--> 
+
+<!-- 
+$event is a reserved keyword
+Can be used in the template when using event binding
+ -->
+
+<!-- 
+*ngFor="let server of servers"
+
+Will loop through all elements of the array - "servers" and assign the individual element to the dynamic "server" variable.
+"server" can now be used in our template
+-->
