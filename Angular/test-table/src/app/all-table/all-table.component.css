@@ -18,3 +18,11 @@
   overflow: auto;
   max-height: 500px;
 }
+
+
+/* Use for sticky table header */
+/* .mat-header-row {
+  position: sticky;
+  top: 0;
+  background-color: #ffffff; 
+} */
