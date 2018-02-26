@@ -19,9 +19,9 @@ if ($name != false) {
     $query->execute();
     echo '<div class="container"><hr><small class="text-muted">Submission Succesful !</small><br><br>';
     echo '<table class="table table-striped"><tr><th>Field<th>Value</th></tr>';
-    echo '<tr><td>Name<td>'    . $name  . '</tr>';
-    echo '<tr><td>Phone<td>'   . $phone . '</tr>';
-    echo '<tr><td>Email<td>'   . $email . '</tr></table>';
+    echo '<tr><td>Name<td>'  . $name  . '</tr>';
+    echo '<tr><td>Phone<td>' . $phone . '</tr>';
+    echo '<tr><td>Email<td>' . $email . '</tr></table>';
     echo '<hr><table class="table table-striped"><tr><th>Name<th>Phone<th>Email</tr>';
 
     $sql = 'SELECT Name, Phone, Email FROM table_name ORDER BY Name';
