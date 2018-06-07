@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 
+declare var introJs: any;
+declare var $: any;
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,4 +14,12 @@ export class AppComponent {
   evenNumbers = [2, 4];
   onlyOdd = false;
   value = 10;
+
+  startIntro() {
+    introJs().start();
+  }
+
+  openModal() {
+    $('#myModal').modal();
+  }
 }

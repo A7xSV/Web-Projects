@@ -3,9 +3,9 @@
     <div class="col-xs-12">
       <button
         class="btn btn-primary"
-        (click)="onlyOdd = !onlyOdd">Only show odd numbers</button>
+        (click)="onlyOdd = !onlyOdd" data-step="1" data-intro="Use this button to switch numbers">Only show odd numbers</button>
       <br><br>
-      <ul class="list-group">
+      <ul class="list-group" data-step="2" data-intro="This section shows the numbers">
         <div *ngIf="onlyOdd">
           <li class="list-group-item" 
             *ngFor="let odd of oddNumbers"
@@ -37,22 +37,48 @@
         </ng-template> -->
 
       </ul>
-      <p appBasicHighlight>Custom Directive styled area basicHighlight</p>
-      <!-- <p appBetterHighlight>Custom Directive styled area betterHighlight</p> -->
-      <!-- You can omit the square brackets if a string is to be passed in property binding -->
-      <p [appBetterHighlight]="'lightblue'" defaultColor="lightcoral">Custom Directive styled area betterHighlight</p>
-      <p appBetterHighlight="lightgreen">Test</p>
-      <p [appBetterHighlight]>Test</p>
-      <ng-template [ngIf]="onlyOdd">
-        <p appBetterHighlight>Only odd</p>
-      </ng-template>
+      <div data-step="3" data-intro="Test area">
+        <p appBasicHighlight>Custom Directive styled area basicHighlight</p>
+        <!-- <p appBetterHighlight>Custom Directive styled area betterHighlight</p> -->
+        <!-- You can omit the square brackets if a string is to be passed in property binding -->
+        <p [appBetterHighlight]="'lightblue'" defaultColor="lightcoral">Custom Directive styled area betterHighlight</p>
+        <p appBetterHighlight="lightgreen">Test</p>
+        <p [appBetterHighlight]>Test</p>
 
-      <div [ngSwitch]="value">
-        <p *ngSwitchCase="5">Value is 5</p>
-        <p *ngSwitchCase="10">Value is 10</p>
-        <p *ngSwitchCase="100">Value is 100</p>
-        <p *ngSwitchDefault>Value is Default</p>
+        <ng-template [ngIf]="onlyOdd">
+          <p appBetterHighlight>Only odd</p>
+        </ng-template>
+
+        <div [ngSwitch]="value">
+          <p *ngSwitchCase="5">Value is 5</p>
+          <p *ngSwitchCase="10">Value is 10</p>
+          <p *ngSwitchCase="100">Value is 100</p>
+          <p *ngSwitchDefault>Value is Default</p>
+        </div>
       </div>
+
+      <hr>
+      <button class="btn btn-primary" (click)="openModal()">Open Modal</button>      
+      <hr>
+      <button class="btn btn-primary" (click)="startIntro()">Start Intro</button>
     </div>
   </div>
 </div>
+
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <p>Modal body</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
