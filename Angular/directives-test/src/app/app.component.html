@@ -21,9 +21,12 @@
         </div>
       </ul>
       <p appBasicHighlight>Custom Directive styled area basicHighlight</p>
-      <p appBetterHighlight>Custom Directive styled area betterHighlight</p>
+      <!-- <p appBetterHighlight>Custom Directive styled area betterHighlight</p> -->
+      <!-- You can omit the square brackets if a string is to be passed in property binding -->
+      <p [appBetterHighlight]="'lightblue'" defaultColor="lightcoral">Custom Directive styled area betterHighlight</p>
+      <p appBetterHighlight="lightgreen">Test</p>
       <ng-template [ngIf]="onlyOdd">
-        <p>Only odd</p>
+        <p appBetterHighlight>Only odd</p>
       </ng-template>
     </div>
   </div>
