@@ -2,10 +2,15 @@
   <div class="col-xs-12 col-sm-4">
     <div class="list-group">
       <a
+        [routerLink]="['/servers', 5, 'edit']"
+        [queryParams]="{allowEdit: '1'}"
+        fragment="loaded"
         href="#"
         class="list-group-item"
         *ngFor="let server of servers">
         {{ server.name }}
+        <!-- [queryParams] is a bindable property of the routerLink directive,
+        Takes a JavaScript object with key value pairs of the query parameters to be added -->
       </a>
     </div>
   </div>
@@ -15,4 +20,3 @@
     <app-server></app-server>
   </div>
 </div>
-

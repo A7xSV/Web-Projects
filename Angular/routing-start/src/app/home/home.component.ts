@@ -13,9 +13,10 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  onLoadServers() {
+  onLoadServer(id: number) {
     console.log('Loading Servers...', 'Navigating programmatically');
     console.log(this.route);
-    this.router.navigate(['/servers'], {relativeTo: this.route});
+    // By default, unlike the routerLink, the navigate method does not know the route on which it sits. Thus navigates relative to the root by deafult unless explicitly mentioned
+    this.router.navigate(['/servers', id, 'edit'], {relativeTo: this.route, queryParams: {allowEdit: '1'}, fragment: 'loaded'});
   }
 }
