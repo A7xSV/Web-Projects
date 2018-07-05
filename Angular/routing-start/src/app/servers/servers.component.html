@@ -2,7 +2,7 @@
   <div class="col-xs-12 col-sm-4">
     <div class="list-group">
       <a
-        [routerLink]="['/server', server.id]"
+        [routerLink]="['/servers', server.id]"
         [queryParams]="{allowEdit: '1'}"
         fragment="loaded"
         href="#"
@@ -15,8 +15,9 @@
     </div>
   </div>
   <div class="col-xs-12 col-sm-4">
-    <app-edit-server></app-edit-server>
+    <router-outlet></router-outlet> <!-- Used for all child routes -->
+    <!-- <app-edit-server></app-edit-server>
     <hr>
-    <!-- <app-server></app-server> -->
+    <app-server></app-server> -->
   </div>
 </div>
