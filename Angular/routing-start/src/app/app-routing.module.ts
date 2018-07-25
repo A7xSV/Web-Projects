@@ -15,10 +15,16 @@ const appRoutes: Routes = [
   { path: 'users', component: UsersComponent, children: [
     { path: ':id/:name', component: UserComponent }
   ] },
-  { path: 'servers', canActivate: [AuthGuard] ,component: ServersComponent, children: [
-    { path: ':id', component: ServerComponent },
-    { path: ':id/edit', component: EditServerComponent }
-  ] },
+  { 
+    path: 'servers', 
+    // canActivate: [AuthGuard] , 
+    canActivateChild: [AuthGuard],
+    component: ServersComponent, 
+    children: [
+      { path: ':id', component: ServerComponent },
+      { path: ':id/edit', component: EditServerComponent }
+    ] 
+  },
   { path: 'not-found', component: PageNotFoundComponent },
   { path: '**', redirectTo: '/not-found' } // Parsed from top to bottom, any paths below this wildcard will also be redirected 
 ]; 
